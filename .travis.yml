@@ -18,8 +18,14 @@ branches:
     - master
     - /release-.*/
 
-codecov: true
-coveralls: true
+#codecov: true
+#coveralls: true
+after_success:
+  - julia -e 'cd(Pkg.dir("ParticipationData"));
+              Pkg.add("Coverage");
+              using Coverage;
+              Codecov.submit(process_folder());
+              Coveralls.submit(process_folder());'
 
 jobs:
   include:
