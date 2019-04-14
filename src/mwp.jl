@@ -24,7 +24,7 @@ end
 
 """"""
 function create(dbname, tablename)
-    dbconn = SQLite.DB(dbname)
+    dbconn = SQLite.DB("$dbname.db")
     SQLite.execute!(dbconn, """
         CREATE TABLE IF NOT EXISTS $tablename (
             id              INTEGER PRIMARY KEY,
@@ -79,7 +79,7 @@ function save(values, dbname, tablename; batchsz=50)
     niter = div(ncontribs, batchsz)
     restsz = ncontribs % batchsz
     placeholder = "(?, ?, ?, ?, ?)"
-    dbconn = SQLite.DB(dbname)
+    dbconn = SQLite.DB("$dbname.db")
     for i in 1:niter
         SQLite.Query(dbconn, """
             INSERT INTO $tablename (number, participant, ref, content, assessment)
