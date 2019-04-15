@@ -82,13 +82,13 @@ function save(values, dbname, tablename; batchsz=50)
     dbconn = SQLite.DB("$dbname.db")
     for i in 1:niter
         SQLite.Query(dbconn, """
-            INSERT INTO $tablename (number, participant, ref, content, assessment)
+            INSERT INTO $tablename (number, author, ref, content, assessment_content)
             VALUES $(((placeholder * ", ") ^ (batchsz - 1)) * placeholder);
         """; values=values[1 + 5 * batchsz * (i - 1):5 * batchsz * i])
     end
     if restsz > 0
         SQLite.Query(dbconn, """
-            INSERT INTO $tablename (number, participant, ref, content, assessment)
+            INSERT INTO $tablename (number, author, ref, content, assessment_content)
             VALUES $(((placeholder * ", ") ^ (restsz - 1)) * placeholder);
         """; values=values[end - 5 * restsz + 1:end])
     end
