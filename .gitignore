@@ -2,6 +2,7 @@ data
 db
 docs/build
 .vscode
+*.db
 *.jl.cov
 *.jl.*.cov
 *.jl.mem
