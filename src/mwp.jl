@@ -27,12 +27,12 @@ function create(dbname, tablename)
     dbconn = SQLite.DB("$dbname.db")
     SQLite.execute!(dbconn, """
         CREATE TABLE IF NOT EXISTS $tablename (
-            id              INTEGER PRIMARY KEY,
-            number          INTEGER,
-            participant     TEXT,
-            ref             TEXT,
-            content         TEXT NOT NULL,
-            assessment      TEXT
+            id                  INTEGER PRIMARY KEY,
+            number              INTEGER,
+            author              TEXT,
+            ref                 TEXT,
+            content             TEXT NOT NULL,
+            assessment_content  TEXT
         );
     """)
 end
