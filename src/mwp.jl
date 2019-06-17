@@ -123,7 +123,7 @@ function mwp(download=true, create=true, transform=true)
             "lep_2008_01", "rrep_2009_02", "rrep_2013_01", "rrep_2015_02",
             "rrep_2015_03", "lep_2014_01", "lep_2016_01"]
     for p in processes
-        scrape(p, "data/mwp/$p", p, "mwp_$p"; dodownload=download,
+        scrape(p, "data/mwp/$p", p, "contribution"; dodownload=download,
                 docreate=create, dotransform=transform)
     end
 end
