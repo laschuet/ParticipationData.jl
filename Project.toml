@@ -1,5 +1,6 @@
 name = "ParticipationData"
 uuid = "9d9d21c2-228d-11e9-36b7-c37dd0bad0e8"
+authors = ["Lars Schütz"]
 version = "0.1.0"
 
 [deps]
