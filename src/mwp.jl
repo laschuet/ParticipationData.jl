@@ -58,12 +58,12 @@ function transform(path)
             content = nodeText(parts[3])
             assessment = nodeText(parts[4])
 
-            m = match(r"(lfd.-Nr.: )(\d+)(.*)", participant)
-            if m == nothing
+            m = match(r"lfd\.\sNr\.:\s(\d+)(.+)", participant)
+            if isnothing(m)
                 continue
             end
 
-            push!(values, m[2], m[3], ref, content, assessment)
+            push!(values, m[1], m[2], ref, content, assessment)
         end
     end
 
