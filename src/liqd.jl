@@ -88,7 +88,7 @@ end
 
 """"""
 function advocate_europe(fileroot)
-    dbname = "liqd_advocate_europe.db"
+    dbname = "liqd_advocate_europe.sqlite"
     tablename = "contribution"
     create_table_type_1(dbname, tablename)
     load(fileroot * "/advocate_europe.xlsx", dbname, tablename)
@@ -96,7 +96,7 @@ end
 
 """"""
 function blankenburger_sueden(fileroot)
-    dbname = "liqd_blankenburger_sueden.db"
+    dbname = "liqd_blankenburger_sueden.sqlite"
     tablename = "comment"
     create_table_type_3(dbname, "$(tablename)_a")
     create_table_type_3(dbname, "$(tablename)_b")
@@ -112,7 +112,7 @@ end
 
 """"""
 function laermorte(fileroot)
-    dbname = "liqd_laermorte_melden.db"
+    dbname = "liqd_laermorte_melden.sqlite"
     create_table_type_2(dbname, "contribution")
     create_table_type_3(dbname, "comment")
     load("$fileroot/laermorte_melden.xlsx", dbname, "contribution")
@@ -121,7 +121,7 @@ end
 
 """"""
 function mauerpark(fileroot)
-    dbname = "liqd_mauerpark.db"
+    dbname = "liqd_mauerpark.sqlite"
     create_table_type_2(dbname, "contribution")
     create_table_type_3(dbname, "comment")
     load("$fileroot/mauerpark.xlsx", dbname, "contribution")
